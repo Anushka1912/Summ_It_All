@@ -1,4 +1,4 @@
-# Summ It All
+# Summ-It-All
 
 **Summ It All** is a Python-based text summarization tool that allows you to generate concise summaries from various data formats, including documents, audio, and video. The project leverages the Hugging Face Transformers library for summarization and supports customization of summary lengths (short, medium, and long). It also provides chunking mechanisms to handle large input data seamlessly.
 
