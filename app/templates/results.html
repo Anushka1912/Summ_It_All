@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Processing Results</h1>
+    <h2>Extracted Text:</h2>
+    <div class="result-box">
+        <p>{{ text }}</p>
+    </div>
+    <h2>Summary:</h2>
+    <div class="result-box">
+        <p>{{ summary }}</p>
+    </div>
+    <a href="/" class="button-link">Upload Another File</a>
+</body>
+</html>

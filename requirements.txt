@@ -1,0 +1,8 @@
+flask
+ffmpeg-python
+pytesseract
+pdfplumber
+python-docx
+pandas
+transformers
+torch
