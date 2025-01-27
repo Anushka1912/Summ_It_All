@@ -5,15 +5,46 @@ import pdfplumber
 from docx import Document
 import pandas as pd
 from transformers import pipeline
+import time
+
 
 # Initialize summarization model
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
 # Text summarization
 def summarize_text(text, summary_type):
-    length = {"short": 50, "medium": 100, "long": 200}[summary_type]
-    summary = summarizer(text, max_length=length, min_length=25, do_sample=False)
-    return summary[0]['summary_text']
+    # Define the maximum input length for BART (1024 tokens)
+    max_input_length = 1024
+
+    # Adjust the maximum length of the summary based on the type
+    if summary_type == "short":
+        length = 20  # Adjust as needed
+    elif summary_type == "medium":
+        length = 50  # Adjust as needed
+    elif summary_type == "long":
+        length = 100  # Adjust as needed
+    else:
+        length = 50  # Default
+
+    # Split the text into chunks
+    chunks = [text[i:i + max_input_length] for i in range(0, len(text), max_input_length)]
+    summaries = []
+
+    for i, chunk in enumerate(chunks):
+        try:
+            # Summarize the chunk
+            summary = summarizer(chunk, max_length=length, min_length=25, do_sample=False)
+            summaries.append(summary[0]['summary_text'])
+
+            # Introduce a delay to avoid rate limiting
+            time.sleep(1)  # Adjust the delay as needed
+
+        except Exception as e:
+            summaries.append(f"Error summarizing chunk {i + 1}: {e}")
+
+    # Combine all chunk summaries
+    final_summary = " ".join(summaries)
+    return final_summary
 
 # Process text file
 def process_text_file(file_path):
