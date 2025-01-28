@@ -9,3 +9,5 @@ torch
 pydub 
 openai-whisper 
 vosk
+yt-dlp
+pdf2image

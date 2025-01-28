@@ -2,63 +2,90 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
-    line-height: 1.6;
-    color: #333;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
+.container {
+    width: 90%;
+    max-width: 700px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Headings */
 h1 {
-    color: #333;
     font-size: 2rem;
+    color: #333333;
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #555;
-    font-size: 1.5rem;
-    margin-top: 20px;
+    font-size: 1rem;
+    color: #555555;
     margin-bottom: 10px;
 }
 
+/* Labels */
 label {
-    font-weight: bold;
     font-size: 1rem;
-    display: block;
+    font-weight: bold;
     margin-bottom: 5px;
+    display: block;
 }
 
+/* Form Styles */
 form {
-    margin-top: 20px;
-    max-width: 600px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-section {
+    flex: 1;
+    text-align: left;
+}
+
+/* Centered Section for Summary and Submit */
+.centered-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 /* Input Fields */
-input[type="file"], select, button {
+input[type="file"], input[type="url"], select {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
     margin-top: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="file"] {
-    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 1rem;
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
+    background-color: #007bff;
+    color: #ffffff;
     font-size: 1rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -68,51 +95,13 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Result Box Styles */
-.result-box {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: pre-wrap; /* Ensures line breaks are preserved */
-    word-wrap: break-word;
-}
-
-/* Button Link */
-.button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-top: 20px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.button-link:hover {
-    background-color: #0056b3;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
+    .form-row {
+        flex-direction: column;
     }
 
-    form {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.3rem;
+    .centered-section {
+        flex-direction: column;
     }
 }

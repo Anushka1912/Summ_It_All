@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Processing Results</h1>
-    <h2>Extracted Text:</h2>
-    <div class="result-box">
-        <p>{{ text }}</p>
+    <div class="container">
+        <h1>Processing Results</h1>
+        <h2>Extracted Text:</h2>
+        <div class="result-box">
+            <p>{{ text }}</p>
+        </div>
+        <h2>Summary:</h2>
+        <div class="result-box">
+            {% if summary %}
+                <p>{{ summary }}</p>
+            {% else %}
+                <p>No summary could be generated.</p>
+            {% endif %}
+        </div>
+        <a href="/" class="button-link">Upload Another File</a>
     </div>
-    <h2>Summary:</h2>
-    <div class="result-box">
-        {% if summary %}
-            <p>{{ summary }}</p>
-        {% else %}
-            <p>No summary could be generated.</p>
-        {% endif %}
-    </div>
-    <a href="/" class="button-link">Upload Another File</a>
 </body>
 </html>
-
