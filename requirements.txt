@@ -6,3 +6,6 @@ python-docx
 pandas
 transformers
 torch
+pydub 
+openai-whisper 
+vosk
